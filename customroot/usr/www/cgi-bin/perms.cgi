@@ -39,7 +39,7 @@ if test "$tmp" != "/"; then
 		cat<<-EOF
 			<h4 class="warn">Filesystem is of type $TYPE, not a linux native filesystem.<br>
 			Only ext2, ext3, ext4 or NFS filesystems can use UNIX permissions.
-			</h4>$(back_button)</body></html>
+			</h4>$(back_button)$(write_footer)
 		EOF
 	exit 0
 	fi
@@ -114,5 +114,5 @@ cat <<-EOF
 	<p><input type=submit name=Permissions value="Submit">$(back_button)
 	<input type=hidden name=newdir value="$browse">
 	<input type=hidden name=goto value="$HTTP_REFERER">
-	</form></body></html>
+	</form>$(write_footer)
 EOF

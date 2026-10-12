@@ -107,7 +107,7 @@ EOF
 
 if test -z "$install_loc" -a "$noubi" = 1; then
 	echo "</table></fieldset>"
-	echo "</form></body></html>"
+	echo "</form>$(write_footer)"
 	exit 0
 fi
 
@@ -267,5 +267,5 @@ if test -x /usr/bin/ipkg-cl; then
 	}'
 fi
 
-echo "</form></body></html>"
+echo "</form>$(write_footer)"
 

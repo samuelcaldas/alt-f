@@ -73,5 +73,5 @@ cat<<-EOF
 	<input type=hidden name=def_dir value=$def_dir>
 	<p><input type=submit value=Submit> $(back_button)
 	<input type="submit" id=webbut $webbut name="webPage" value="WebPage" onClick="return confirm('On the next mt-daapd Authentication dialogue you have to enter \'mt-daapd\' as the \'User Name\' and \'mt-daapd\' (default) as the \'Password\'.')">
-	</form></body></html>
+	</form>$(write_footer)
 EOF

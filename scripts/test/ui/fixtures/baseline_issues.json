@@ -1,0 +1,6 @@
+{
+  "ddns_proc.cgi": {
+    "sha256": "35d7c19e6d63d6d4cc999170ef45bb801535ea0116dc0423a8a19080b2307b04",
+    "reason": "Pre-existing missing fi: HEAD also fails BusyBox ash -n. Unchanged service handler, outside UI scope."
+  }
+}

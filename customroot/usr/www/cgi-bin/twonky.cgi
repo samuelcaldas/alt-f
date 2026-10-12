@@ -20,9 +20,9 @@ cat<<EOF
 				port = ":9443";
 		else
 				return;
-		window.parent.location.replace(location.protocol + "//" + location.hostname + port, "Twonky");
+		window.location.replace(location.protocol + "//" + location.hostname + port, "Twonky");
 	}
 
 	twonky_page()
-</script><body></html>
+</script>$(write_footer)
 EOF

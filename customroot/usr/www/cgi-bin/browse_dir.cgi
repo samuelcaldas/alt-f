@@ -299,4 +299,4 @@ else
 	flat "$browse"
 fi
 
-echo "</table></body></html>"
+echo "</table>$(write_footer)"

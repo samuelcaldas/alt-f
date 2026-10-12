@@ -62,5 +62,5 @@ cat<<-EOF
 	<script type="text/javascript">
 		document.loginf.passwd.focus();
 	</script>
-	</body></html>
+	$(write_footer)
 EOF

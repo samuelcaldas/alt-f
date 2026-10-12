@@ -192,6 +192,6 @@ cat<<-EOF
 
 	</table></fieldset>
 	<p><input type=submit name=submit value="Submit">$(back_button)
-	</form></body></html>
+	</form>$(write_footer)
 EOF
 

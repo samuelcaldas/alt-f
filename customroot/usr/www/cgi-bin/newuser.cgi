@@ -20,7 +20,7 @@ if ! test -h /home -a -d "$(readlink -f /home)"; then
 	# FIXME offer possibility of creation of Public Folders
 	select_part
 	echo "<input type=submit name=create_dir value=CreateDir>
-		</form></body></html>"
+		</form>$(write_footer)"
 	exit 0
 fi
 
@@ -91,5 +91,5 @@ cat <<EOF
 	<tr><td>Again<td><input type=password name=passa $(ttip ttpassa)></td></tr>
 	</table><p>
 	$subbut <input type="submit" name="cancel" value="Cancel"></td></tr>
-	</form></body></html>
+	</form>$(write_footer)
 EOF

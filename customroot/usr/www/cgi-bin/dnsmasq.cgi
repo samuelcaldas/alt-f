@@ -195,5 +195,5 @@ cat<<EOF
 	<p><input type=hidden name=cnt_dns value="$i">
 	<input type=submit name=submit value=Submit>$(back_button)
 	
-	</form></body></html>
+	</form>$(write_footer)
 EOF

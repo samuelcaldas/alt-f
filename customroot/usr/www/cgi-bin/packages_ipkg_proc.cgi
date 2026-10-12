@@ -111,7 +111,7 @@ echo
 			<input type="button" value="Back" onclick="err()"></p>
 		EOF
 	fi
-	echo "</body></html>"
+	echo "$(write_footer)"
 	exit 0
 }
 

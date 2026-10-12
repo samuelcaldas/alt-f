@@ -86,5 +86,5 @@ cat <<EOF
 	</table><br>
 
 	<input type=submit name=submit value=Submit>$(back_button)
-	</form></body></html>
+	</form>$(write_footer)
 EOF

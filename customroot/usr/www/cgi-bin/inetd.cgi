@@ -63,7 +63,7 @@ cat<<-EOF
 	<td class="highcol">
 	<input type=hidden name=cnt value=$i>
 	<input type="submit" name=submit value="Submit"></td><td>$(back_button)</td>	
-	</tr></table></form></body></html>
+	</tr></table></form>$(write_footer)
 EOF
 
 #enddebug

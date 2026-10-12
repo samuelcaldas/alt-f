@@ -50,5 +50,5 @@ cat <<-EOF
 	<tr><td>web UI:</td>
 	<td><input type=submit name="submit" value="Display"></td>
 	</tr>
-	</table></form></body></html>
+	</table></form>$(write_footer)
 EOF

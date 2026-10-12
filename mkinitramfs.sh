@@ -35,7 +35,7 @@ deps_check() {
 	pf=$1
 	if test "$pf" = "kernel-modules"; then pf="$pf-$arch"; fi
 	if ! ( cd $CWD; ./mkpkg.sh -check $pf >& /dev/null); then
-		echo "WARNING: Package $pf does not contains all files, might or not be OK!" > $(tty)
+		echo "WARNING: Package $pf does not contains all files, might or not be OK!" >&2
 	fi
 }
 

@@ -100,6 +100,6 @@ cat<<-EOF
 	</table>
 	<textarea id="edit_id" style="visibility:hidden;display:none" rows="15" cols="70" name="userscript">$defscript</textarea>
 	<p><input type=submit name=submit value="Submit" onclick="return msubmit()">$(back_button)
-	</form></body></html>
+	</form>$(write_footer)
 EOF
 

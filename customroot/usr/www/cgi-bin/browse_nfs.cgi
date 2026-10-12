@@ -8,7 +8,7 @@ html_header "NFS Browse"
 if test -n "$QUERY_STRING"; then		
 	parse_qstring
 else
-	echo "<h3>No arguments given.</h3></body></html>"
+	echo "<h3>No arguments given.</h3>$(write_footer)"
 	exit 0
 fi
 
@@ -43,4 +43,4 @@ done
 wait_count_stop
 
 echo "<br><form action=\"\"><input type=submit onclick=\"window.close()\" value=Cancel>
-		</form></body></html>"
+		</form>$(write_footer)"

@@ -178,5 +178,5 @@ cat<<-EOF
 	<tr><td>Max NFS Block size</td><td><input type=text size=7 name="NFS_BLKSIZE" value="$NFS_BLKSIZE" $(ttip blksz_tt)> $dmsg</td></tr>
 	</table>
 	<p><input type="submit" name="submit" value="Submit">$(back_button)
-	</form></body></html>
+	</form>$(write_footer)
 EOF

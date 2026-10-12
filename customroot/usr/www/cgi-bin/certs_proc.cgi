@@ -486,7 +486,7 @@ elif test -n "$getCert"; then
 	acme.sh --install-cronjob
 	
 	busy_cursor_end
-	echo "</pre><p><strong>Sucess</strong> $(goto_button Continue /cgi-bin/certs.cgi)</p></body></html>"
+	echo "</pre><p><strong>Sucess</strong> $(goto_button Continue /cgi-bin/certs.cgi)</p>$(write_footer)"
 	exit 0
 
 elif test -n "$renewCert"; then
@@ -500,7 +500,7 @@ elif test -n "$renewCert"; then
 	fi
 	
 	busy_cursor_end
-	echo "</pre><p><strong>Sucess</strong> $(goto_button Continue /cgi-bin/certs.cgi)</p></body></html>"
+	echo "</pre><p><strong>Sucess</strong> $(goto_button Continue /cgi-bin/certs.cgi)</p>$(write_footer)"
 	exit 0
 
 elif test -n "$revokeCert"; then
@@ -528,7 +528,7 @@ elif test -n "$revokeCert"; then
 	acme.sh --uninstall-cronjob
 	
 	busy_cursor_end
-	echo "</pre><p><strong>Sucess</strong> $(goto_button Continue /cgi-bin/certs.cgi)</p></body></html>"
+	echo "</pre><p><strong>Sucess</strong> $(goto_button Continue /cgi-bin/certs.cgi)</p>$(write_footer)"
 	exit 0
 
 	

@@ -239,7 +239,7 @@ elif test -n "$Details"; then
 	mdev=$Details
 	res=$(mdadm --detail /dev/$mdev; echo -e "\n/proc/mdstat:"; cat /proc/mdstat 2>&1)
 	html_header "$mdev RAID Details"
-	echo "<pre>$res</pre>$(back_button)</body></html>"
+	echo "<pre>$res</pre>$(back_button)$(write_footer)"
 	exit 0
 
 elif test -n "$Add_part"; then
@@ -271,7 +271,7 @@ elif test -n "$Examine_part"; then
 	rdev=$(eval echo \$rdev_$mdev)
 	res=$(mdadm --examine /dev/$rdev 2>&1)
 	html_header "$rdev RAID Component Details"
-	echo "<pre>$res</pre>$(back_button)</body></html>"
+	echo "<pre>$res</pre>$(back_button)$(write_footer)"
 	exit 0
 
 elif test -n "$Clear_part"; then

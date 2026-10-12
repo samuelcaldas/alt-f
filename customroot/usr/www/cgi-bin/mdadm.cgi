@@ -31,6 +31,6 @@ cat<<-EOF
 	Mail a test message when started</td></tr>
 	</table>
 	<p><input type="submit" name=submit value="Submit">$(back_button)
-	</form></body></html>
+	</form>$(write_footer)
 EOF
 

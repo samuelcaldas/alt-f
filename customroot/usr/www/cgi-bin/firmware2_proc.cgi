@@ -30,7 +30,7 @@ flash_error() {
 	rm -f $TF $kernel_file $initramfs_file $sqimage_file $defaults_file
 	echo "none" > /tmp/sys/power_led/trigger
 	echo "<strong><span class=\"error\">Failed</span></strong></p><p>You can repeat the fw download and firmware upgrade using HTTP<br>
-	after stopping all running processes (System->Utilities->Services, StopAll)<br>or \"TryIt\" another firmware, but <strong>don't reboot or poweroff the box until success</strong><br> or you will need to buy and solder a serial cable into the box to make it work again.</p><pre>$1</pre></body></html>"
+	after stopping all running processes (System->Utilities->Services, StopAll)<br>or \"TryIt\" another firmware, but <strong>don't reboot or poweroff the box until success</strong><br> or you will need to buy and solder a serial cable into the box to make it work again.</p><pre>$1</pre>$(write_footer)"
 	rcsysctrl start >& /dev/null
 	exit 1
 }
@@ -95,7 +95,7 @@ check_fwfiles() {
 			<br>
 			<form action="/cgi-bin/firmware.cgi" method="post">
 			Kernel and/or ramdisk file missing <input type="submit" value="Retry">
-			</form></body></html>
+			</form>$(write_footer)
 		EOF
 		exit 0
 	fi
@@ -106,7 +106,7 @@ check_fwfiles() {
 			<br>
 			<form action="/cgi-bin/firmware.cgi" method="post">
 			defaults file missing or empty <input type="submit" value="Retry">
-			</form></body></html>
+			</form>$(write_footer)
 		EOF
 		exit 0
 	fi
@@ -240,5 +240,5 @@ cat<<-EOF
 	<form action="/cgi-bin/sys_utils_proc.cgi" method="post">
 	You should reboot the box now for the new firmware to become active.
 	<input type=submit name="action" value="Reboot" onClick="return confirm('The box will reboot now.\nYou will be connected again in 60 seconds.\n\nProceed?')">
-	</form></body></html>
+	</form>$(write_footer)
 EOF

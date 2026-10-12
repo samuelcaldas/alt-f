@@ -90,7 +90,7 @@ cat<<-EOF
 
 		img.onload = function() {
 			if (img.naturalHeight > 0)
-				parent.document.location.replace(server)
+				window.location.replace(server)
 		}
 
 		img.onerror = function() {
@@ -99,7 +99,7 @@ cat<<-EOF
 				setTimeout(testServer, 1000)
 			} else {
 				document.body.style.cursor = '';
-				document.write("<html><body><br><h3><center>Timeout, try pointing your browser to " + server + "</center></h3></body></html>")
+				document.write("<html><body><br><h3><center>Timeout, try pointing your browser to " + server + "</center></h3>$(write_footer)")
 			}
 		}
 		img.src = testimg
@@ -108,7 +108,7 @@ cat<<-EOF
 	setTimeout(testServer, 2000)
 	document.body.style.cursor = 'wait';
 
-	</script></body></html>
+	</script>$(write_footer)
 EOF
 
 # TODO: possible lighttpd ports colision

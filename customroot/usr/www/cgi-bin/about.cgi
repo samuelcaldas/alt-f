@@ -19,6 +19,6 @@ DNR-322L and compatible NAS.
 <h3>License</h3>
 <pre>$(cat /COPYING)</pre>
 
-</body></html>
+$(write_footer)
 EOF
 

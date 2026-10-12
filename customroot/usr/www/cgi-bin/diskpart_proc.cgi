@@ -32,7 +32,7 @@ err() {
 		<pre>$1</pre>
 		<p><strong>Error</strong>
 		<input type="button" value="Back" onclick="window.location.assign(document.referrer)"></p>
-		</body></html>
+		$(write_footer)
 	EOF
 	# restart hotplug
 	echo /sbin/mdev > /proc/sys/kernel/hotplug
@@ -363,7 +363,7 @@ cat<<-EOF
 		}
 		setTimeout("err()", 3000);
 	</script>
-	</body></html>
+	$(write_footer)
 EOF
 
 #enddebug

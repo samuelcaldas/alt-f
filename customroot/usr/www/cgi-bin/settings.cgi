@@ -49,6 +49,6 @@ cat<<-EOF
 	<input type=submit name=action value="Upload" onclick="return load_ask()">
 	</form>
 	</fieldset>
-	</body></html>
+	$(write_footer)
 EOF
 

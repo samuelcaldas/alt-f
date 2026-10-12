@@ -417,7 +417,7 @@ elif test -n "$Details"; then
     eval part=\$part_$Details
     res=$(tune2fs -l "/dev/$part" 2>&1)
     html_header "$part Filesystem Details"
-    echo "<pre>$res</pre>$(back_button)</body></html>"
+    echo "<pre>$res</pre>$(back_button)$(write_footer)"
     exit 0
 
 elif test -n "$Convert"; then

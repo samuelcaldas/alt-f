@@ -20,7 +20,7 @@ A minimum installation will need at least 300MB. Additional packages will need m
 After installation succeeds, you can use the 'debian' command line to chroot or kexec Debian.<br>You are on your own."
 
 if ! aufs.sh -s >& /dev/null; then
-	echo "<h3 class="warn">You have to install one Alt-F package first.</h3></body></html>"
+	echo "<h3 class="warn">You have to install one Alt-F package first.</h3>$(write_footer)"
 	exit 0
 fi
 
@@ -92,6 +92,6 @@ cat<<-EOF
 	<td>$(select_part $part)</td>
 	<td><input type="submit" name="submit" value="Install" $(ttip install_tt)></td>
 	</tr></table></fieldset>
-	</form></body></html>
+	</form>$(write_footer)
 EOF
 

@@ -193,5 +193,5 @@ cat<<-EOF
 	<script type="text/javascript">
 	tdis()
 	</script>
-	</body></html>
+	$(write_footer)
 EOF

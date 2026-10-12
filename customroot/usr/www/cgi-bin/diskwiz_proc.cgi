@@ -18,7 +18,7 @@ err() {
 		<strong>failed:</strong></p>
 		<pre>$1</pre>
 		<input type="button" value="Back" onclick="window.location.assign(document.referrer)"></p>
-		</body></html>
+		$(write_footer)
 	EOF
 	# restart hotplug and sysctrl
 	echo /sbin/mdev > /proc/sys/kernel/hotplug
@@ -534,4 +534,4 @@ echo " done.</p>"
 
 busy_cursor_end
 firstboot  /cgi-bin/diskmaint.cgi
-echo "<h4>Success.</h4>$(goto_button Continue /cgi-bin/diskmaint.cgi)</body></html>"
+echo "<h4>Success.</h4>$(goto_button Continue /cgi-bin/diskmaint.cgi)$(write_footer)"

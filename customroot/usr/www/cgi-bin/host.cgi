@@ -109,5 +109,5 @@ cat<<-EOF
 	<script type="text/javascript">
 	edisable($ipdisable);
 	</script>
-	</body></html>
+	$(write_footer)
 EOF

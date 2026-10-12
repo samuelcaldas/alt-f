@@ -265,6 +265,6 @@ cat<<-EOF
 </table>	
 </fieldset>
 
-</form></body></html>
+</form>$(write_footer)
 EOF
 

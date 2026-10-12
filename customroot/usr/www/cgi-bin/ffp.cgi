@@ -5,7 +5,7 @@ check_cookie
 write_header "ffp Setup"
 
 if ! test -f /ffp/etc/rc; then
-	echo "No ffp installation found<br>$(back_button)</body></html>"
+	echo "No ffp installation found<br>$(back_button)$(write_footer)"
 	exit 0
 fi
 
@@ -45,5 +45,5 @@ cat<<-EOF
 	</table>
 	<p><input type="submit" name=submit value="Submit">$(back_button)
 	<input type=hidden name=cnt value=$cnt>
-	</form></body></html>
+	</form>$(write_footer)
 EOF

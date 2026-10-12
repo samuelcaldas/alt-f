@@ -222,7 +222,7 @@ cat<<-EOF
 EOF
 
 # if test -n "$cadis"; then
-# 	echo "</body></html>"
+# 	echo "$(write_footer)"
 # 	exit 0
 # fi
 
@@ -375,5 +375,5 @@ fi
 cat<<-EOF
 	</form>
 	</fieldset>
-	</body></html>
+	$(write_footer)
 EOF

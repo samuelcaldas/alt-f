@@ -6,7 +6,7 @@ write_header "Firmware Updater"
 
 brd=$(cat /tmp/board)
 if test "$brd" = "Unknown"; then
-	echo "<h3 class=\"error\">Unsupported unknown board</h3></body></html>"
+	echo "<h3 class=\"error\">Unsupported unknown board</h3>$(write_footer)"
 	exit 1
 fi
 
@@ -21,7 +21,7 @@ elif grep -qE 'DNS-327L|DNS-320-[AB]x|DNS-320L-Ax|DNS-325-Ax|DNR-322L-Ax' /tmp/b
 	flashed_kernel=$(nanddump -qal 128 /dev/$kernel | grep -o 'Alt-F.*')
 	flashed_initramfs=$(nanddump -qal 128 /dev/$initramfs | grep -o 'Alt-F.*')
 else
-	echo "<h3 class=\"error\">BUMMER, unknown board</h3></body></html>"
+	echo "<h3 class=\"error\">BUMMER, unknown board</h3>$(write_footer)"
 	exit 1
 fi
 
@@ -54,5 +54,5 @@ cat<<-EOF
 	<tr><td></td><td><input type=submit value="Upload"></td></tr>
 	</table>
 	</form>
-	</body></html>
+	$(write_footer)
 EOF

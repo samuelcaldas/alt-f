@@ -32,7 +32,7 @@ esac
 write_header "$title"
 
 if test -z "$srv"; then
-	echo "<center><h4>No services available</h4></center></body></html>"
+	echo "<center><h4>No services available</h4></center>$(write_footer)"
 	exit 0;
 fi
 
@@ -96,7 +96,7 @@ cat<<-EOF
 	<tr><td></td>
 	<td class="highcol"><input type="submit" name="$srv" value="Submit"></td>
 	<td colspan=4></td></tr>
-	</table></fieldset></form></body></html>
+	</table></fieldset></form>$(write_footer)
 EOF
 
 #enddebug

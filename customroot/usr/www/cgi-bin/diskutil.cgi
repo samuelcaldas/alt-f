@@ -174,5 +174,5 @@ cat<<-EOF
 	<tr><td>Swap aggressiveness:</td><td><input  style="width:100%" type="text" size=4 name=swappiness value=$(cat /proc/sys/vm/swappiness) onChange="return msubmit('swappiness_act')" $(ttip swappiness_tt)></td></tr>
 	</table>
 	</fieldset>
-	</form></body></html>
+	</form>$(write_footer)
 EOF

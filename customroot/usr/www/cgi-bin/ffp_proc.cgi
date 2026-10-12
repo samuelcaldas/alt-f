@@ -38,7 +38,7 @@ busy_cursor_end
 echo "</pre>"
 if test -n "$ch"; then
 	goto_button Continue /cgi-bin/ffp.cgi
-	echo "</body></html>"
+	echo "$(write_footer)"
 else
 	js_gotopage /cgi-bin/ffp.cgi
 fi

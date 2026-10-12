@@ -186,6 +186,6 @@ because they might not be recognized by the flashed firmware when it will run ag
 Continue?')">
 
 	<input type="submit" name=flash value="Abort">
-	</form></body></html>
+	</form>$(write_footer)
 EOF
 exit 0

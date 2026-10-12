@@ -218,4 +218,4 @@ if test "$altfvg" = 0 -o -n "$lvd"; then
 	fi
 fi
 
-echo "</form></body></html>"
+echo "</form>$(write_footer)"

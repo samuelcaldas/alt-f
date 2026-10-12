@@ -198,7 +198,7 @@ cat<<-EOF
 	</table><input type=hidden name=cnt value=$i>
 	</fieldset>
 	<p><input type="submit" name="submit" value="Submit">$(back_button)
-	</form></body></html>
+	</form>$(write_footer)
 EOF
 
 exit 0

@@ -88,7 +88,7 @@ elif test -n "$checkPort"; then
 	echo "</pre>"
 	busy_cursor_end
 	back_button
-	echo "</body></html>"
+	echo "$(write_footer)"
 	exit 0
 fi
 
@@ -107,7 +107,7 @@ fi
 
 if ! test -d "$server_root/htdocs"; then
 	mkdir -p "$server_root/htdocs"
-	echo "<html><body><p>Hello Dolly</body></html>" > "$server_root/htdocs/hello.html"
+	echo "<html><body><p>Hello Dolly$(write_footer)" > "$server_root/htdocs/hello.html"
 	echo "<?php phpinfo(); ?>" > "$server_root/htdocs/hello.php"
 	chown -R lighttpd:network "$server_root/htdocs"
 	chmod -R go-w "$server_root/htdocs"

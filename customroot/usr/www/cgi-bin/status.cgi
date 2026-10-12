@@ -612,7 +612,7 @@ if test -n "$refresh"; then
 	if echo $apl | grep -qw $refresh; then
 		html_header
 		$refresh
-		echo "</body></html>"
+		echo "$(write_footer)"
 	fi
 	exit 0
 fi
@@ -631,5 +631,5 @@ for i in $apl; do launch $i; done
 cat<<EOF
 	<form action="">
 Autorefresh <input type=checkbox name="arefresh" value="yes" onclick="frefresh(this)" $(ttip st_tt)>
-	</form></body></html>
+	</form>$(write_footer)
 EOF

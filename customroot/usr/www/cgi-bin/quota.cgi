@@ -182,5 +182,5 @@ fi
 cat<<-EOF
 	<input type=hidden name=targ value="$targ">
 	<input type=hidden name=opt value="$opt">
-	</form></body></html>
+	</form>$(write_footer)
 EOF

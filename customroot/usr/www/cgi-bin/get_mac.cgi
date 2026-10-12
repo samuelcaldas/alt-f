@@ -10,7 +10,7 @@ html_header
 if test -n "$QUERY_STRING"; then		
 	parse_qstring
 else
-	echo "<script type="text/javascript"> window.close() </script></body></html>"
+	echo "<script type="text/javascript"> window.close() </script>$(write_footer)"
 	exit 0
 fi
 
@@ -50,13 +50,13 @@ fi
 					<script type="text/javascript">
 						window.opener.document.getElementById("$id").value = "$mac";
 						window.close()
-					</script></body></html>
+					</script>$(write_footer)
 				EOF
 				exit 0
 			fi
 		fi
 	fi
 
-echo "<input type=button value=\"OK\" onclick=\"window.close()\"></body></html>"
+echo "<input type=button value=\"OK\" onclick=\"window.close()\">$(write_footer)"
 
 #enddebug

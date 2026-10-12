@@ -176,6 +176,6 @@ cat<<EOF
 	</table>
 	<input type="hidden" name=from_url value="$HTTP_REFERER">
 	<input type=submit name=submit value="Submit">$(back_button)
-	</form></body></html>
+	</form>$(write_footer)
 EOF
 

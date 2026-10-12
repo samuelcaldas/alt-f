@@ -8,7 +8,7 @@ html_header "Samba Browse"
 if test -n "$QUERY_STRING"; then		
 	parse_qstring
 else
-	echo "<h3>No arguments given.</h3></body></html>"
+	echo "<h3>No arguments given.</h3>$(write_footer)"
 	exit 0
 fi
 
@@ -55,4 +55,4 @@ smbtree -N 2> /dev/null | tr '\t' ':' | awk -F : '{
 
 echo "</table>"
 wait_count_stop
-echo "<br><form action=\"\"><input type=submit onclick=\"window.close()\" value=Cancel></form></body></html>"
+echo "<br><form action=\"\"><input type=submit onclick=\"window.close()\" value=Cancel></form>$(write_footer)"

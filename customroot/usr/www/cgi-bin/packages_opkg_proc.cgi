@@ -48,7 +48,7 @@ opkg_cmd() {
 	EOF
 	
 	busy_cursor_end	
-	echo "</body></html>"
+	echo "$(write_footer)"
 	exit 0
 }
 
@@ -160,7 +160,7 @@ elif test "$install" = "Install"; then
 # 	cat<<-EOF
 # 		</pre>
 # 		<input type="button" value="Continue" onclick="window.location.assign(document.referrer)">
-# 		</body></html>
+# 		$(write_footer)
 # 	EOF
 	echo "</pre>"
 	goto_button Continue /cgi-bin/packages_opkg.cgi

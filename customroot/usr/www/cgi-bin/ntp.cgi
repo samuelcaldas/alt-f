@@ -51,5 +51,5 @@ cat<<-EOF
 	</table>
 	<input type=hidden name=cnt_ntp value="$i">
 	<p><input type=submit value=Submit>$(back_button)
-	</form></body></html>
+	</form>$(write_footer)
 EOF

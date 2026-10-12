@@ -54,8 +54,8 @@ $(eval $(call AUTOTARGETS,package,dbus))
 
 # fix rebuild if /var/lib is a symlink to /tmp
 $(DBUS_HOOK_POST_BUILD): $(DBUS_TARGET_BUILD)
+	mkdir -p $(TARGET_DIR)/tmp $(TARGET_DIR)/etc/dbus-1
 	rm -rf /tmp/dbus $(TARGET_DIR)/var/lib/dbus
-	mkdir -p $(TARGET_DIR)/etc/dbus-1
 	touch $@
 
 $(DBUS_HOOK_POST_INSTALL): $(DBUS_TARGET_INSTALL_TARGET)

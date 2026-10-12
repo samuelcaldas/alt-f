@@ -40,7 +40,7 @@ if ! test -d /ffp/var/packages -o -d /ffp/funpkg/installed; then
 		<tr><td>from</td><td><input type=text size=40 name=ffpsite value="$FFPSITE"></td></tr>
 		<tr><td>into</td><td>$(select_part)</td></tr>
 		<tr><td></td><td><input type=submit name=install value=Install></td></tr>
-		</table></form></body></html>
+		</table></form>$(write_footer)
 	EOF
 	exit 0
 fi
@@ -167,4 +167,4 @@ if test -z "$noserver"; then
 	echo "</table></fieldset>"
 fi
 
-echo "</form></body></html>"
+echo "</form>$(write_footer)"

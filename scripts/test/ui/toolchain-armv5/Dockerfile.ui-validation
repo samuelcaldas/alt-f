@@ -1,0 +1,9 @@
+FROM alt-f-armv5-toolchain:buildroot-2019.02.8
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends qemu-user-static bzip2 curl \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY validate-arm-ui.sh /usr/local/bin/validate-arm-ui
+ENTRYPOINT ["/usr/local/bin/validate-arm-ui"]
