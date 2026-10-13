@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installation & Upgrades — Alt-F Firmware</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+      <div class="brand">
+        <a href="index.html" style="color: inherit; text-decoration: none;">Alt-F</a>
+        <span class="tagline">— Free Alternative Firmware for D-Link NAS</span>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="hardware.html">Hardware</a>
+        <a href="software.html">Software</a>
+        <a href="packages.html">Packages</a>
+        <a href="screenshots.html">Screenshots</a>
+        <a href="install.html" class="active">Install Guide</a>
+        <a href="donate.html">Donate & Credits</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-content">
+
+    <div class="page-header">
+      <h1>Installation, Upgrades & Recovery</h1>
+      <p class="subtitle">Complete guide to flashing Alt-F, troubleshooting first boot, managing settings, and restoring stock firmware.</p>
+    </div>
+
+    <section class="content-section">
+      <h2>1. Flashing Alt-F for the First Time</h2>
+      <p>
+        Alt-F is packaged as a standard firmware update file (<code>.bin</code>) that can be applied directly using the vendor's web administration interface:
+      </p>
+
+      <ol style="margin-left: 1.5rem; line-height: 2; margin-top: 1rem;">
+        <li><strong>Reboot the NAS:</strong> Reboot the device prior to upgrading to ensure all services are stopped and RAM is unfragmented.</li>
+        <li><strong>Disable FFP (Fonz Fun Plug):</strong> If you have <code>ffp</code> installed on a hard disk, rename the <code>ffp</code> directory to <code>ffp-orig</code> so its scripts do not execute automatically during first boot.</li>
+        <li><strong>Identify Device Revision:</strong> Inspect the label on the bottom of the device to find its exact model and hardware revision level (e.g., <em>DNS-320L Rev A3</em>).</li>
+        <li><strong>Select the Matching Firmware File:</strong> Choose the appropriate <code>.bin</code> file:
+          <ul>
+            <li>DNS-320 Rev A1/A2 &rarr; <code>Alt-F-*-DNS-320-rev-Ax.bin</code></li>
+            <li>DNS-320 Rev B1/B2 &rarr; <code>Alt-F-*-DNS-320-rev-Bx.bin</code></li>
+            <li>DNS-320L Rev A1/A2/A3 &rarr; <code>Alt-F-*-DNS-320L-rev-Ax.bin</code></li>
+            <li>DNS-321 Rev A1/A2 &rarr; <code>Alt-F-*-DNS-321-rev-Ax.bin</code></li>
+            <li>DNS-323 Rev A1/B1/C1 &rarr; <code>Alt-F-*-DNS-323-rev-AxBxCx.bin</code></li>
+            <li>DNS-325 Rev A1/A2 &rarr; <code>Alt-F-*-DNS-325-rev-Ax.bin</code></li>
+            <li>DNS-327L Rev A1 &rarr; <code>Alt-F-*-DNS-327L-rev-Ax.bin</code></li>
+          </ul>
+        </li>
+        <li><strong>Flash through Stock UI:</strong> In the stock web GUI, navigate to the <em>Firmware Upgrade</em> page, select the firmware file, and click apply.</li>
+        <li><strong>Wait for Reboot & Clear Cache:</strong> Wait for the flashing procedure to finish and the device to restart. Clear your browser cache or open a private window.</li>
+      </ol>
+
+      <div class="callout warning">
+        <h4>Flashing Precaution</h4>
+        <p>
+          Never power off the device during the flashing process. Ensure you are flashing the binary matching your exact hardware revision.
+        </p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>2. Diagnosing First Boot & LED Behavior</h2>
+
+      <h3>Blue Power LED Blinking Slowly (Heartbeat Rate)</h3>
+      <p>
+        The blue power LED pulses with a slow, regular heartbeat while disk LEDs flash randomly. <strong>This is normal behavior</strong>: it indicates that <code>fsck</code> is checking your hard drive filesystems following an unclean shutdown (which is standard when restarting from vendor firmware).
+      </p>
+      <p style="margin-top: 0.5rem;">
+        Do not interrupt the device. Checking a large disk can take 10 to 30 minutes. Once complete, the power LED turns solid blue and services start.
+      </p>
+
+      <h3>Power Button Recovery Functions</h3>
+      <p>
+        If you cannot access the web interface and need to safely interact with the NAS, press and hold the front power button:
+      </p>
+      <ul style="margin-left: 1.5rem; line-height: 1.8; margin-top: 0.5rem;">
+        <li><strong>After 3 seconds:</strong> Right amber disk LED starts flashing &rarr; <em>Releasing the button now initiates an orderly reboot.</em></li>
+        <li><strong>After 6 seconds:</strong> Left amber disk LED starts flashing &rarr; <em>Releasing the button now initiates an orderly system shutdown.</em></li>
+        <li><strong>After 9 seconds:</strong> LEDs stop flashing &rarr; Cancel without taking action.</li>
+      </ul>
+
+      <h3>Locating Your Device on the Network</h3>
+      <p>
+        Alt-F resolves its IP address using the following priority:
+      </p>
+      <ol style="margin-left: 1.5rem; line-height: 1.8; margin-top: 0.5rem;">
+        <li>Kernel command-line settings (if configured).</li>
+        <li>Saved Alt-F flash settings in <code>/etc/settings</code>.</li>
+        <li>Stock firmware settings (if a static IP was previously configured in the vendor GUI).</li>
+        <li>DHCP client request to your local router.</li>
+        <li>Fallback link-local IP search in the range <code>192.168.1.254</code> down to <code>192.168.1.240</code>.</li>
+      </ol>
+    </section>
+
+    <section class="content-section">
+      <h2>3. Saving Settings to Flash</h2>
+      <p>
+        Alt-F runs with an in-memory/compressed root filesystem. When you make configuration changes (users, passwords, network shares, daemon settings):
+      </p>
+      <ol style="margin-left: 1.5rem; line-height: 2; margin-top: 0.5rem;">
+        <li>Navigate to <strong>System &rarr; Settings</strong> in the web menu.</li>
+        <li>Click <strong>Save Settings</strong> to commit active configuration files to non-volatile flash memory (<code>/etc/settings</code>).</li>
+        <li>You can also click <strong>Download</strong> in the "Computer Disk" section to download a complete backup archive of your settings.</li>
+      </ol>
+    </section>
+
+    <section class="content-section">
+      <h2>4. Restoring Stock Firmware (Downgrading)</h2>
+      <p>
+        Alt-F's firmware flashing utility allows flashing official D-Link stock firmware binaries directly:
+      </p>
+      <ol style="margin-left: 1.5rem; line-height: 2; margin-top: 0.5rem;">
+        <li>Download the official D-Link stock firmware <code>.bin</code> file for your device from D-Link support.</li>
+        <li>In Alt-F, navigate to <strong>System &rarr; Firmware</strong>.</li>
+        <li>Select the vendor <code>.bin</code> file and apply the upgrade.</li>
+        <li>After rebooting, your device returns to the factory D-Link software.</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Alt-F Documentation</h4>
+        <ul>
+          <li><a href="index.html">Home Overview</a></li>
+          <li><a href="hardware.html">Hardware Compatibility</a></li>
+          <li><a href="software.html">Built-in Software</a></li>
+          <li><a href="packages.html">Package Management</a></li>
+          <li><a href="screenshots.html">UI Screenshots</a></li>
+          <li><a href="install.html">Installation & Upgrades</a></li>
+          <li><a href="donate.html">Donate & Credits</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>External Links</h4>
+        <ul>
+          <li><a href="https://github.com/samuelcaldas/alt-f" target="_blank" rel="noopener">GitHub Project</a></li>
+          <li><a href="https://sourceforge.net/projects/alt-f/" target="_blank" rel="noopener">SourceForge Project</a></li>
+          <li><a href="https://sourceforge.net/p/alt-f/wiki/Home/" target="_blank" rel="noopener">SourceForge Wiki</a></li>
+          <li><a href="https://groups.google.com/group/alt-f" target="_blank" rel="noopener">Community Forum</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <p style="font-size: 0.85rem; color: #adb5bd; line-height: 1.5;">
+          Alt-F is free software maintained under the GNU General Public License v2 (GPL-2.0).
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; Alt-F Community &bull; Hosted on GitHub Pages
+    </div>
+  </footer>
+
+</body>
+</html>

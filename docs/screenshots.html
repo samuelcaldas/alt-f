@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screenshots — Alt-F Web Interface</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+      <div class="brand">
+        <a href="index.html" style="color: inherit; text-decoration: none;">Alt-F</a>
+        <span class="tagline">— Free Alternative Firmware for D-Link NAS</span>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="hardware.html">Hardware</a>
+        <a href="software.html">Software</a>
+        <a href="packages.html">Packages</a>
+        <a href="screenshots.html" class="active">Screenshots</a>
+        <a href="install.html">Install Guide</a>
+        <a href="donate.html">Donate & Credits</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-content">
+
+    <div class="page-header">
+      <h1>Web Administration Interface Screenshots</h1>
+      <p class="subtitle">Visual tour of the Alt-F web administration interface, showing storage, networking, services, and system configuration screens.</p>
+    </div>
+
+    <section class="content-section">
+      <h2>Modernized User Interface</h2>
+      <p>
+        The Alt-F web administration interface allows full control over your storage device without touching the command line. The interface has been modernized to eliminate legacy multi-frame navigation, providing clean HTML5 landmarks, mobile-friendly responsive viewports, and sub-100 KiB page rendering budget:
+      </p>
+
+      <div class="card-grid" style="margin-top: 1.5rem;">
+        <div class="card">
+          <h3>System Status</h3>
+          <p>Real-time overview of CPU load, memory utilization, mounted filesystems, network interfaces, temperatures, and uptime.</p>
+        </div>
+        <div class="card">
+          <h3>Disk Utilities & Partitioning</h3>
+          <p>Graphical partition manager supporting GPT and MBR schemes, filesystem formatting (ext2/3/4, Btrfs, FAT, NTFS), and filesystem integrity checks.</p>
+        </div>
+        <div class="card">
+          <h3>RAID Array Management</h3>
+          <p>Wizard and manual controls for configuring RAID0, RAID1, and RAID5 arrays, monitoring resync progress, and performing non-destructive migrations.</p>
+        </div>
+        <div class="card">
+          <h3>Users, Groups & Permissions</h3>
+          <p>Comprehensive user account creation, group memberships, and granular read/write filesystem access control.</p>
+        </div>
+        <div class="card">
+          <h3>Network File Sharing</h3>
+          <p>Samba 4 share manager, NFS export controls, FTP server settings, and user quotas.</p>
+        </div>
+        <div class="card">
+          <h3>Services & Daemons</h3>
+          <p>Start, stop, and configure system daemons including SSH, Rsync, Dnsmasq, Inadyn, Avahi, Cron, and Stunnel.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Original Release Screen Captures</h2>
+      <p>
+        Historical interface captures from the early Alt-F releases showcasing the functional design:
+      </p>
+
+      <div class="gallery">
+        <div class="gallery-item">
+          <div style="background: #2a3b4c; color: #fff; padding: 2.5rem 1rem; text-align: center; font-weight: 600;">Status & Overview</div>
+          <div class="caption">System Status: Hardware metrics, memory, network, and mounted filesystems</div>
+        </div>
+        <div class="gallery-item">
+          <div style="background: #2a3b4c; color: #fff; padding: 2.5rem 1rem; text-align: center; font-weight: 600;">Disk Partitioner</div>
+          <div class="caption">Disk Partitioner: Partition table editing, GPT/MBR labels, and volume sizing</div>
+        </div>
+        <div class="gallery-item">
+          <div style="background: #2a3b4c; color: #fff; padding: 2.5rem 1rem; text-align: center; font-weight: 600;">RAID Maintenance</div>
+          <div class="caption">RAID Maintenance: Array health, disk swapping, and hot spare configuration</div>
+        </div>
+        <div class="gallery-item">
+          <div style="background: #2a3b4c; color: #fff; padding: 2.5rem 1rem; text-align: center; font-weight: 600;">Samba Configuration</div>
+          <div class="caption">Samba Shares: Public, private, and home directories sharing with Windows clients</div>
+        </div>
+        <div class="gallery-item">
+          <div style="background: #2a3b4c; color: #fff; padding: 2.5rem 1rem; text-align: center; font-weight: 600;">Package Manager</div>
+          <div class="caption">Package Manager: One-click installation and removal of disk packages</div>
+        </div>
+        <div class="gallery-item">
+          <div style="background: #2a3b4c; color: #fff; padding: 2.5rem 1rem; text-align: center; font-weight: 600;">System Settings</div>
+          <div class="caption">Settings Management: Committing active configurations to persistent flash memory</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Alt-F Documentation</h4>
+        <ul>
+          <li><a href="index.html">Home Overview</a></li>
+          <li><a href="hardware.html">Hardware Compatibility</a></li>
+          <li><a href="software.html">Built-in Software</a></li>
+          <li><a href="packages.html">Package Management</a></li>
+          <li><a href="screenshots.html">UI Screenshots</a></li>
+          <li><a href="install.html">Installation & Upgrades</a></li>
+          <li><a href="donate.html">Donate & Credits</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>External Links</h4>
+        <ul>
+          <li><a href="https://github.com/samuelcaldas/alt-f" target="_blank" rel="noopener">GitHub Project</a></li>
+          <li><a href="https://sourceforge.net/projects/alt-f/" target="_blank" rel="noopener">SourceForge Project</a></li>
+          <li><a href="https://sourceforge.net/p/alt-f/wiki/Home/" target="_blank" rel="noopener">SourceForge Wiki</a></li>
+          <li><a href="https://groups.google.com/group/alt-f" target="_blank" rel="noopener">Community Forum</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <p style="font-size: 0.85rem; color: #adb5bd; line-height: 1.5;">
+          Alt-F is free software maintained under the GNU General Public License v2 (GPL-2.0).
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; Alt-F Community &bull; Hosted on GitHub Pages
+    </div>
+  </footer>
+
+</body>
+</html>

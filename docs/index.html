@@ -1,1 +1,246 @@
-<!--#include file="about.html" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alt-F — Alternative Firmware for D-Link NAS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+      <div class="brand">
+        <a href="index.html" style="color: inherit; text-decoration: none;">Alt-F</a>
+        <span class="tagline">— Free Alternative Firmware for D-Link NAS</span>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="hardware.html">Hardware</a>
+        <a href="software.html">Software</a>
+        <a href="packages.html">Packages</a>
+        <a href="screenshots.html">Screenshots</a>
+        <a href="install.html">Install Guide</a>
+        <a href="donate.html">Donate & Credits</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-container">
+      <h1>Alt-F</h1>
+      <p class="lead">A free and open source alternative firmware for the D-Link DNS-320/320L/321/323/325/327L and DNR-322L Network Attached Storage devices.</p>
+
+      <div class="badges">
+        <img src="https://img.shields.io/badge/License-GPLv2-blue.svg" alt="GPLv2 License">
+        <img src="https://img.shields.io/badge/Architecture-ARMv5%20%7C%20ARMv7-orange.svg" alt="ARM Architecture">
+        <img src="https://img.shields.io/badge/Kernel-Linux%204.14%20LTS-green.svg" alt="Linux 4.14">
+        <img src="https://img.shields.io/badge/SourceForge-alt--f-blue.svg" alt="SourceForge">
+      </div>
+
+      <div class="hero-actions">
+        <a href="https://github.com/samuelcaldas/alt-f" class="btn btn-primary" target="_blank" rel="noopener">GitHub Repository</a>
+        <a href="install.html" class="btn btn-outline">Installation Guide</a>
+        <a href="https://sourceforge.net/projects/alt-f/files/Releases/" class="btn btn-outline" target="_blank" rel="noopener">Download Releases</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="site-content">
+
+    <section class="content-section">
+      <h2>About Alt-F</h2>
+      <p>
+        Alt-F provides a modern Linux operating system for popular ARM-based D-Link network storage hardware, freeing your device from outdated vendor software restrictions.
+      </p>
+      <p style="margin-top: 1rem;">
+        Alt-F has <strong>Samba and NFS</strong>; supports <strong>ext2, ext3, ext4, BTRFS, VFAT, NTFS and ISO9660</strong> filesystems; <strong>RAID 0, 1, 5</strong> (with an external USB disk) and JBOD; supports drives up to <strong>8TB+</strong>; provides <code>rsync</code>, FTP, SFTP, FTPS, SSH, LPD printing, integrated DNS and DHCP servers, dynamic DNS, fan and LED regulation, clean power up and down... <em>and much more</em>.
+      </p>
+      <p style="margin-top: 1rem;">
+        Alt-F also features a comprehensive, modernized web administration interface, allowing you to configure storage, networking, and services without needing shell commands.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Key Capabilities</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Advanced Storage & Filesystems</h3>
+          <p>Full support for ext2/3/4, BTRFS, FAT32, exFAT, and NTFS-3G. Soft-RAID (RAID0, RAID1, RAID5) with non-destructive bidirectional conversion between standard filesystems and RAID1.</p>
+        </div>
+        <div class="card">
+          <h3>Networking & File Sharing</h3>
+          <p>Samba 4 (SMB2/SMB3) with Microsoft WS-Discovery daemon (WSDD2), native NFS v3/v4, FTPS, SFTP, OpenSSH, Dropbear, rsync, and AFP Time Machine support.</p>
+        </div>
+        <div class="card">
+          <h3>Extensible Packages</h3>
+          <p>In addition to builtin software, Alt-F supports packages on disk or flash through its ipkg manager, as well as full compatibility with Entware-ng and FFP (Fonz Fun Plug).</p>
+        </div>
+        <div class="card">
+          <h3>Lightweight Web Administration</h3>
+          <p>Modern, responsive administration interface running purely on BusyBox httpd with POSIX shell CGI pairs. Consumes no heavy background daemon memory.</p>
+        </div>
+        <div class="card">
+          <h3>Monitoring & Power Control</h3>
+          <p>S.M.A.R.T. drive health monitoring, temperature-guided fan speeds, power button shutdown controls, UPS monitoring (NUT, apcupsd), and email alerts via msmtp.</p>
+        </div>
+        <div class="card">
+          <h3>Media & Downloads</h3>
+          <p>Built-in or downloadable support for MiniDLNA, Transmission (BitTorrent), Aria2, aMule, NZBGet, Lighttpd, and MySQL/MariaDB.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Hardware Support</h2>
+      <p>
+        Alt-F has been developed and tested on multiple hardware boards and revisions. The root filesystem runs directly from flash (SquashFS + UBIFS) to maximize available RAM:
+      </p>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Supported Revisions</th>
+              <th>Processor / Architecture</th>
+              <th>Memory / Flash</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>DNS-320</strong></td>
+              <td>Rev A1, A2, B1, B2</td>
+              <td>Marvell Kirkwood 88F6281 / 88F6702 (ARMv5TEJ)</td>
+              <td>128MB RAM / 128MB NAND</td>
+              <td>Supported & Tested</td>
+            </tr>
+            <tr>
+              <td><strong>DNS-320L</strong></td>
+              <td>Rev A1, A2, A3</td>
+              <td>Marvell Kirkwood 88F6702 (ARMv5TEJ @ 1.0 GHz)</td>
+              <td>256MB RAM / 128MB NAND</td>
+              <td>Supported & Tested</td>
+            </tr>
+            <tr>
+              <td><strong>DNS-321</strong></td>
+              <td>Rev A1, A2</td>
+              <td>Marvell Orion 88F5182 (ARMv5TEJ @ 500 MHz)</td>
+              <td>64MB RAM / 8MB NOR</td>
+              <td>Supported (Compat pkg)</td>
+            </tr>
+            <tr>
+              <td><strong>DNS-323</strong></td>
+              <td>Rev A1, B1, C1</td>
+              <td>Marvell Orion 88F5181/88F5182 (ARMv5TEJ @ 500 MHz)</td>
+              <td>64MB RAM / 8MB NOR</td>
+              <td>Supported & Tested</td>
+            </tr>
+            <tr>
+              <td><strong>DNS-325</strong></td>
+              <td>Rev A1, A2</td>
+              <td>Marvell Kirkwood 88F6281 (ARMv5TEJ @ 1.2 GHz)</td>
+              <td>256MB RAM / 128MB NAND</td>
+              <td>Supported & Tested</td>
+            </tr>
+            <tr>
+              <td><strong>DNS-327L</strong></td>
+              <td>Rev A1</td>
+              <td>Marvell Armada 370 88F6707 (ARMv7 @ 1.2 GHz)</td>
+              <td>512MB RAM / 128MB NAND</td>
+              <td>Supported & Tested</td>
+            </tr>
+            <tr>
+              <td><strong>DNR-322L</strong></td>
+              <td>Rev A1</td>
+              <td>Marvell Kirkwood 88F6281 (Identical to DNS-320 Rev A)</td>
+              <td>128MB RAM / 128MB NAND</td>
+              <td>Supported & Tested</td>
+            </tr>
+            <tr>
+              <td><strong>CH3SNAS / DUO 35-LR</strong></td>
+              <td>Rev B1</td>
+              <td>Conceptronic & Fujitsu-Siemens rebrands of DNS-323</td>
+              <td>64MB RAM / 8MB NOR</td>
+              <td>Supported</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top: 1rem;">
+        <a href="hardware.html">View detailed hardware specifications and firmware partition tables &rarr;</a>
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Project Links</h2>
+      <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li><strong>GitHub Repository:</strong> <a href="https://github.com/samuelcaldas/alt-f" target="_blank" rel="noopener">github.com/samuelcaldas/alt-f</a></li>
+        <li><strong>SourceForge Project:</strong> <a href="https://sourceforge.net/projects/alt-f/" target="_blank" rel="noopener">sourceforge.net/projects/alt-f</a></li>
+        <li><strong>Firmware Downloads:</strong> <a href="https://sourceforge.net/projects/alt-f/files/Releases/" target="_blank" rel="noopener">SourceForge Releases</a></li>
+        <li><strong>SVN Source Code:</strong> <a href="https://sourceforge.net/p/alt-f/code/HEAD/tree/" target="_blank" rel="noopener">SourceForge Code Browser</a></li>
+        <li><strong>Project Wiki:</strong> <a href="https://sourceforge.net/p/alt-f/wiki/Home/" target="_blank" rel="noopener">SourceForge Wiki</a></li>
+        <li><strong>Discussion Forum:</strong> <a href="https://groups.google.com/group/alt-f" target="_blank" rel="noopener">Alt-F Google Group</a></li>
+        <li><strong>Bug Tracking:</strong> <a href="https://sourceforge.net/p/alt-f/tickets/" target="_blank" rel="noopener">SourceForge Tickets</a></li>
+        <li><strong>Project News:</strong> <a href="https://sourceforge.net/p/alt-f/news/" target="_blank" rel="noopener">SourceForge News Announcements</a></li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <h2>Community Credits</h2>
+      <p>Special acknowledgment to the community members and developers who contributed hardware ports and expertise:</p>
+      <ul style="margin-left: 1.5rem; margin-top: 0.75rem; line-height: 1.8;">
+        <li><a href="http://dns323.kood.org/forum/viewforum.php?id=3" target="_blank" rel="noopener">The community forum</a> and <a href="http://dns323.kood.org/" target="_blank" rel="noopener">The DNS-323 wiki</a></li>
+        <li><strong>M. Michlmayr:</strong> Porting work on the DNS-323 (<a href="http://www.cyrius.com/debian/orion/d-link/dns-323/" target="_blank" rel="noopener">cyrius.com</a>)</li>
+        <li><strong>J. Lentin:</strong> Porting and kernel support on DNS-320/325 (<a href="http://jamie.lentin.co.uk/devices/dlink-dns325/" target="_blank" rel="noopener">jamie.lentin.co.uk</a>)</li>
+        <li><strong>A. Böhler:</strong> DNS-320L kernel and hardware bringup (<a href="http://www.aboehler.at/cms/projects-a-hacks/50-dns320l" target="_blank" rel="noopener">aboehler.at</a>)</li>
+        <li><strong>L. Martignoni:</strong> DNS-320L hardware porting (<a href="https://github.com/martignlo/DNS-320L" target="_blank" rel="noopener">github.com/martignlo/DNS-320L</a>)</li>
+        <li><strong>D. Grande:</strong> DNS-325 modifications (<a href="https://github.com/davidedg/NAS-DNS325-mod" target="_blank" rel="noopener">github.com/davidedg/NAS-DNS325-mod</a>)</li>
+        <li><strong>Necromant:</strong> DNS-327L Armada 370 Debian bringup (<a href="https://ncrmnt.org/2015/02/15/debian-dlink-dns-327l-the-guide/" target="_blank" rel="noopener">ncrmnt.org</a>)</li>
+      </ul>
+      <p style="margin-top: 1rem;">
+        <a href="donate.html">View hardware donors and contribution details &rarr;</a>
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Alt-F Documentation</h4>
+        <ul>
+          <li><a href="index.html">Home Overview</a></li>
+          <li><a href="hardware.html">Hardware Compatibility</a></li>
+          <li><a href="software.html">Built-in Software</a></li>
+          <li><a href="packages.html">Package Management</a></li>
+          <li><a href="screenshots.html">UI Screenshots</a></li>
+          <li><a href="install.html">Installation & Upgrades</a></li>
+          <li><a href="donate.html">Donate & Credits</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>External Links</h4>
+        <ul>
+          <li><a href="https://github.com/samuelcaldas/alt-f" target="_blank" rel="noopener">GitHub Project</a></li>
+          <li><a href="https://sourceforge.net/projects/alt-f/" target="_blank" rel="noopener">SourceForge Project</a></li>
+          <li><a href="https://sourceforge.net/p/alt-f/wiki/Home/" target="_blank" rel="noopener">SourceForge Wiki</a></li>
+          <li><a href="https://groups.google.com/group/alt-f" target="_blank" rel="noopener">Community Forum</a></li>
+          <li><a href="https://sites.google.com/site/altfirmware/alt-f" target="_blank" rel="noopener">Original Google Site</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <p style="font-size: 0.85rem; color: #adb5bd; line-height: 1.5;">
+          Alt-F is free software maintained under the GNU General Public License v2 (GPL-2.0). Original author: João Cardoso (jcard).
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; Alt-F Community &bull; Hosted on GitHub Pages &bull; Open Source Firmware for D-Link NAS
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hardware Support — Alt-F Firmware</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+      <div class="brand">
+        <a href="index.html" style="color: inherit; text-decoration: none;">Alt-F</a>
+        <span class="tagline">— Free Alternative Firmware for D-Link NAS</span>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="hardware.html" class="active">Hardware</a>
+        <a href="software.html">Software</a>
+        <a href="packages.html">Packages</a>
+        <a href="screenshots.html">Screenshots</a>
+        <a href="install.html">Install Guide</a>
+        <a href="donate.html">Donate & Credits</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-content">
+
+    <div class="page-header">
+      <h1>Supported Hardware</h1>
+      <p class="subtitle">Detailed breakdown of supported D-Link NAS models, SoCs, memory layouts, and firmware partition targets.</p>
+    </div>
+
+    <section class="content-section">
+      <h2>Hardware Compatibility Matrix</h2>
+      <p>
+        Alt-F supports D-Link DNS-series and DNR-series NAS devices based on Marvell Orion, Kirkwood, and Armada 370 system-on-chips. Make sure to check the exact hardware revision on the label attached to the bottom of your unit before flashing.
+      </p>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Hardware Revisions</th>
+              <th>SoC & Frequency</th>
+              <th>Architecture</th>
+              <th>RAM</th>
+              <th>Flash Type & Size</th>
+              <th>Firmware Binary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>DNS-320</strong></td>
+              <td>Rev A1, A2</td>
+              <td>Marvell Kirkwood 88F6281 @ 800MHz</td>
+              <td>ARMv5TEJ (ARM926EJ-S)</td>
+              <td>128 MB</td>
+              <td>NAND (128 MB)</td>
+              <td><code>Alt-F-*-DNS-320-rev-Ax.bin</code></td>
+            </tr>
+            <tr>
+              <td><strong>DNS-320</strong></td>
+              <td>Rev B1, B2</td>
+              <td>Marvell Kirkwood 88F6702 @ 1.0GHz</td>
+              <td>ARMv5TEJ (ARM926EJ-S)</td>
+              <td>128 MB</td>
+              <td>NAND (128 MB)</td>
+              <td><code>Alt-F-*-DNS-320-rev-Bx.bin</code></td>
+            </tr>
+            <tr>
+              <td><strong>DNS-320L</strong></td>
+              <td>Rev A1, A2, A3</td>
+              <td>Marvell Kirkwood 88F6702 @ 1.0GHz</td>
+              <td>ARMv5TEJ (ARM926EJ-S)</td>
+              <td>256 MB</td>
+              <td>NAND (128 MB)</td>
+              <td><code>Alt-F-*-DNS-320L-rev-Ax.bin</code></td>
+            </tr>
+            <tr>
+              <td><strong>DNS-321</strong></td>
+              <td>Rev A1, A2</td>
+              <td>Marvell Orion 88F5182 @ 500MHz</td>
+              <td>ARMv5TEJ (ARM926EJ-S)</td>
+              <td>64 MB</td>
+              <td>NOR (8 MB)</td>
+              <td><code>Alt-F-*-DNS-321-rev-Ax.bin</code></td>
+            </tr>
+            <tr>
+              <td><strong>DNS-323</strong></td>
+              <td>Rev A1, B1, C1</td>
+              <td>Marvell Orion 88F5181/88F5182 @ 500MHz</td>
+              <td>ARMv5TEJ (ARM926EJ-S)</td>
+              <td>64 MB</td>
+              <td>NOR (8 MB)</td>
+              <td><code>Alt-F-*-DNS-323-rev-AxBxCx.bin</code></td>
+            </tr>
+            <tr>
+              <td><strong>DNS-325</strong></td>
+              <td>Rev A1, A2</td>
+              <td>Marvell Kirkwood 88F6281 @ 1.2GHz</td>
+              <td>ARMv5TEJ (ARM926EJ-S)</td>
+              <td>256 MB</td>
+              <td>NAND (128 MB)</td>
+              <td><code>Alt-F-*-DNS-325-rev-Ax.bin</code></td>
+            </tr>
+            <tr>
+              <td><strong>DNS-327L</strong></td>
+              <td>Rev A1</td>
+              <td>Marvell Armada 370 88F6707 @ 1.2GHz</td>
+              <td>ARMv7 (Cortex-A9 compatible)</td>
+              <td>512 MB</td>
+              <td>NAND (128 MB)</td>
+              <td><code>Alt-F-*-DNS-327L-rev-Ax.bin</code></td>
+            </tr>
+            <tr>
+              <td><strong>DNR-322L</strong></td>
+              <td>Rev A1</td>
+              <td>Marvell Kirkwood 88F6281 @ 800MHz</td>
+              <td>ARMv5TEJ (ARM926EJ-S)</td>
+              <td>128 MB</td>
+              <td>NAND (128 MB)</td>
+              <td><code>Alt-F-*-DNR-322L-rev-Ax.bin</code></td>
+            </tr>
+            <tr>
+              <td><strong>CH3SNAS</strong></td>
+              <td>Rev B1</td>
+              <td>Marvell Orion 88F5182 @ 500MHz</td>
+              <td>ARMv5TEJ (Conceptronic rebrand)</td>
+              <td>64 MB</td>
+              <td>NOR (8 MB)</td>
+              <td><code>Alt-F-*-CH3SNAS.bin</code></td>
+            </tr>
+            <tr>
+              <td><strong>DUO 35-LR</strong></td>
+              <td>Rev B1</td>
+              <td>Marvell Orion 88F5182 @ 500MHz</td>
+              <td>ARMv5TEJ (Fujitsu-Siemens rebrand)</td>
+              <td>64 MB</td>
+              <td>NOR (8 MB)</td>
+              <td><code>Alt-F-*-DUO-35LR.bin</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Bootloader & Flash Limits</h2>
+      <p>
+        The stock D-Link U-Boot bootloader enforces strict partition copy sizes when reading the kernel and initramfs from flash into RAM. The firmware generation pipeline (<code>mkfw.sh</code>) enforces these exact thresholds:
+      </p>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Target Profile</th>
+              <th>Max Kernel (uImage)</th>
+              <th>Max Rootfs (urootfs)</th>
+              <th>Max Extra Partition</th>
+              <th>Rootfs Execution Mechanism</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>DNS-323 / DNS-321</strong></td>
+              <td>1,572,864 bytes (1.5 MiB)</td>
+              <td>6,488,064 bytes (6.18 MiB)</td>
+              <td>N/A (single NOR flash)</td>
+              <td>SquashFS (XZ/LZMA) from NOR flash</td>
+            </tr>
+            <tr>
+              <td><strong>DNS-325 / DNS-320 / DNS-320L</strong></td>
+              <td>3,145,728 bytes (3.0 MiB)</td>
+              <td>3,145,728 bytes (3.0 MiB)</td>
+              <td>104,857,600 bytes (~100 MiB)</td>
+              <td>Dual Partition: Base SquashFS + UBIFS extra</td>
+            </tr>
+            <tr>
+              <td><strong>DNS-327L (ARMv7)</strong></td>
+              <td>3,145,728 bytes (3.0 MiB)</td>
+              <td>4,194,304 bytes (4.0 MiB)</td>
+              <td>81,788,928 bytes (~78 MiB)</td>
+              <td>Dual Partition: Base SquashFS + UBIFS extra</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout warning">
+        <h4>U-Boot NAND Read Constraint Note</h4>
+        <p>
+          Although devices such as the DNS-325 have a 5MB flash partition assigned for kernel and rootfs, stock U-Boot's <code>bootcmd</code> hardcodes reading <code>0x300000</code> (3,145,728 bytes). Any kernel or initramfs exceeding 3 MiB would trigger a <em>"Bad Data CRC"</em> error on boot. Alt-F strictly bounds firmware components within these safety limits.
+        </p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Disk Capacity & Drive Sizes</h2>
+      <p>
+        Thanks to modern Linux 4.14 kernel drivers and 64-bit LBA addressing:
+      </p>
+      <ul style="margin-left: 1.5rem; line-height: 1.8;">
+        <li>Alt-F fully supports <strong>GPT (GUID Partition Table)</strong> partition layouts alongside legacy MBR.</li>
+        <li>Hard drives larger than 2TB (such as 3TB, 4TB, 6TB, 8TB, and 12TB drives) are recognized and formatted without capacity limits.</li>
+        <li>Advanced Format (4Kn and 512e) drives are automatically aligned to 4096-byte boundaries for maximum read/write throughput.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Alt-F Documentation</h4>
+        <ul>
+          <li><a href="index.html">Home Overview</a></li>
+          <li><a href="hardware.html">Hardware Compatibility</a></li>
+          <li><a href="software.html">Built-in Software</a></li>
+          <li><a href="packages.html">Package Management</a></li>
+          <li><a href="screenshots.html">UI Screenshots</a></li>
+          <li><a href="install.html">Installation & Upgrades</a></li>
+          <li><a href="donate.html">Donate & Credits</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>External Links</h4>
+        <ul>
+          <li><a href="https://github.com/samuelcaldas/alt-f" target="_blank" rel="noopener">GitHub Project</a></li>
+          <li><a href="https://sourceforge.net/projects/alt-f/" target="_blank" rel="noopener">SourceForge Project</a></li>
+          <li><a href="https://sourceforge.net/p/alt-f/wiki/Home/" target="_blank" rel="noopener">SourceForge Wiki</a></li>
+          <li><a href="https://groups.google.com/group/alt-f" target="_blank" rel="noopener">Community Forum</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <p style="font-size: 0.85rem; color: #adb5bd; line-height: 1.5;">
+          Alt-F is free software maintained under the GNU General Public License v2 (GPL-2.0).
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; Alt-F Community &bull; Hosted on GitHub Pages
+    </div>
+  </footer>
+
+</body>
+</html>

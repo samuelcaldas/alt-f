@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Built-in Software & Services — Alt-F Firmware</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+      <div class="brand">
+        <a href="index.html" style="color: inherit; text-decoration: none;">Alt-F</a>
+        <span class="tagline">— Free Alternative Firmware for D-Link NAS</span>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="hardware.html">Hardware</a>
+        <a href="software.html" class="active">Software</a>
+        <a href="packages.html">Packages</a>
+        <a href="screenshots.html">Screenshots</a>
+        <a href="install.html">Install Guide</a>
+        <a href="donate.html">Donate & Credits</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-content">
+
+    <div class="page-header">
+      <h1>Software Built In the Firmware</h1>
+      <p class="subtitle">Comprehensive inventory of core daemons, networking tools, storage utilities, and system services pre-installed in Alt-F.</p>
+    </div>
+
+    <section class="content-section">
+      <h2>Storage & Filesystem Utilities</h2>
+      <p>
+        Alt-F includes kernel modules and user-space binaries to support modern storage workflows:
+      </p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Filesystem Tools</h3>
+          <p>Full support for <code>e2fsprogs</code> (ext2, ext3, ext4 formatting and repair), <code>btrfs-progs</code>, <code>dosfstools</code> (FAT/VFAT), <code>exfatprogs</code>, and read/write NTFS via <code>ntfs-3g</code>.</p>
+        </div>
+        <div class="card">
+          <h3>Soft-RAID Management (<code>mdadm</code>)</h3>
+          <p>Configures JBOD, RAID0, RAID1, and RAID5 arrays. Supports online array assembly, degraded rebuilding, and non-destructive conversion between standard filesystems and RAID1.</p>
+        </div>
+        <div class="card">
+          <h3>Partitioning (<code>gptfdisk</code> / <code>sgdisk</code>)</h3>
+          <p>Native GPT support for drives up to 8TB+ and beyond. Includes <code>sfdisk</code> and <code>fdisk</code> for MBR disk compatibility.</p>
+        </div>
+        <div class="card">
+          <h3>Logical Volumes & Encryption</h3>
+          <p>Logical Volume Manager 2 (<code>LVM2</code>) tools for dynamic volume resizing. Block device encryption with LUKS via <code>cryptsetup</code>.</p>
+        </div>
+        <div class="card">
+          <h3>Disk Quotas (<code>quota-tools</code>)</h3>
+          <p>User and group filesystem storage quotas can be enforced across shared network volumes.</p>
+        </div>
+        <div class="card">
+          <h3>Remote Filesystems</h3>
+          <p>Automated mounting of remote CIFS/SMB shares (<code>cifs-utils</code>) and NFS shares (<code>nfs-utils</code>).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Networking & File Sharing</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Samba 4 (SMB2 & SMB3)</h3>
+          <p>High-performance Windows file sharing with support for modern SMB2 and SMB3 dialects. Features guest access, user permissions, and home folders.</p>
+        </div>
+        <div class="card">
+          <h3>WSDD2 (WS-Discovery Daemon)</h3>
+          <p>Enables Windows 10 and Windows 11 clients to automatically discover the NAS under "Network" without legacy NetBIOS or SMBv1.</p>
+        </div>
+        <div class="card">
+          <h3>NFS v3 & v4 Server</h3>
+          <p>Enterprise Unix/Linux file sharing using <code>nfs-utils</code> and <code>portmap</code>, with granular export permissions.</p>
+        </div>
+        <div class="card">
+          <h3>FTP & FTPS (<code>vsftpd</code>)</h3>
+          <p>Secure, lightweight FTP server with SSL/TLS encryption, anonymous access, and virtual chroot directories.</p>
+        </div>
+        <div class="card">
+          <h3>Secure Shell (SSH & SFTP)</h3>
+          <p>Remote access through OpenSSH and Dropbear. Includes the <code>sftp-server</code> subsystem for encrypted file transfers.</p>
+        </div>
+        <div class="card">
+          <h3>RSYNC Daemon</h3>
+          <p>Fast remote delta synchronization for automated backups between NAS devices or remote servers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>System Services & Infrastructure</h2>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Service / Daemon</th>
+              <th>Package</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>DNS & DHCP Server</strong></td>
+              <td><code>dnsmasq</code></td>
+              <td>Lightweight local caching DNS proxy and local DHCP server.</td>
+            </tr>
+            <tr>
+              <td><strong>Dynamic DNS</strong></td>
+              <td><code>inadyn-mt</code></td>
+              <td>Automatic IP address updater supporting DynDNS, No-IP, FreeDNS, and custom DDNS providers.</td>
+            </tr>
+            <tr>
+              <td><strong>mDNS / Zeroconf</strong></td>
+              <td><code>avahi</code></td>
+              <td>Bonjour/Zeroconf service discovery for Apple and Linux networks.</td>
+            </tr>
+            <tr>
+              <td><strong>Time Synchronization</strong></td>
+              <td><code>ntp</code></td>
+              <td>Network Time Protocol client and server maintaining accurate RTC time.</td>
+            </tr>
+            <tr>
+              <td><strong>SSL Wrapper</strong></td>
+              <td><code>stunnel</code></td>
+              <td>Universal SSL encryption wrapper for securing plain-text services.</td>
+            </tr>
+            <tr>
+              <td><strong>Certificate Management</strong></td>
+              <td><code>certs</code></td>
+              <td>Generates self-signed root CAs and manages Let's Encrypt certificates.</td>
+            </tr>
+            <tr>
+              <td><strong>S.M.A.R.T. Health</strong></td>
+              <td><code>smartmontools</code></td>
+              <td>Monitors disk temperatures, self-test results, and sends warning emails upon reallocated sectors.</td>
+            </tr>
+            <tr>
+              <td><strong>Email Alerts</strong></td>
+              <td><code>msmtp</code></td>
+              <td>Lightweight SMTP client forwarding system notifications and disk alerts to your email.</td>
+            </tr>
+            <tr>
+              <td><strong>UPS Monitoring</strong></td>
+              <td><code>apcupsd</code> / <code>nut</code></td>
+              <td>Communicates with USB/network Uninterruptible Power Supplies for orderly shutdown during outages.</td>
+            </tr>
+            <tr>
+              <td><strong>LPD Printing</strong></td>
+              <td><code>lpd</code></td>
+              <td>Turns USB-attached printers into shared network printers for Windows and Linux.</td>
+            </tr>
+            <tr>
+              <td><strong>Web Administration</strong></td>
+              <td>BusyBox <code>httpd</code></td>
+              <td>Lightweight HTTP server running the responsive administrative web UI.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Alt-F Documentation</h4>
+        <ul>
+          <li><a href="index.html">Home Overview</a></li>
+          <li><a href="hardware.html">Hardware Compatibility</a></li>
+          <li><a href="software.html">Built-in Software</a></li>
+          <li><a href="packages.html">Package Management</a></li>
+          <li><a href="screenshots.html">UI Screenshots</a></li>
+          <li><a href="install.html">Installation & Upgrades</a></li>
+          <li><a href="donate.html">Donate & Credits</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>External Links</h4>
+        <ul>
+          <li><a href="https://github.com/samuelcaldas/alt-f" target="_blank" rel="noopener">GitHub Project</a></li>
+          <li><a href="https://sourceforge.net/projects/alt-f/" target="_blank" rel="noopener">SourceForge Project</a></li>
+          <li><a href="https://sourceforge.net/p/alt-f/wiki/Home/" target="_blank" rel="noopener">SourceForge Wiki</a></li>
+          <li><a href="https://groups.google.com/group/alt-f" target="_blank" rel="noopener">Community Forum</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <p style="font-size: 0.85rem; color: #adb5bd; line-height: 1.5;">
+          Alt-F is free software maintained under the GNU General Public License v2 (GPL-2.0).
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; Alt-F Community &bull; Hosted on GitHub Pages
+    </div>
+  </footer>
+
+</body>
+</html>

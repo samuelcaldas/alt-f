@@ -1,0 +1,10 @@
+title: "Alt-F Firmware"
+description: "Free and open-source alternative firmware for D-Link DNS-320/320L/321/323/325/327L NAS"
+baseurl: "/alt-f"
+url: "https://samuelcaldas.github.io"
+markdown: kramdown
+permalink: pretty
+exclude:
+  - plans
+  - adr
+  - sot
