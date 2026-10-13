@@ -5,6 +5,7 @@
 [![License: GPL v2](https://img.shields.io/badge/License-GPLv2-blue.svg)](COPYING)
 [![Architecture: ARMv5 / ARMv7](https://img.shields.io/badge/Architecture-ARMv5%20%7C%20ARMv7-orange.svg)](local/)
 [![Kernel: Linux 4.14 LTS](https://img.shields.io/badge/Kernel-Linux%204.14-green.svg)](project/)
+[![Documentation: GitHub Pages](https://img.shields.io/badge/Documentation-GitHub%20Pages-brightgreen.svg)](https://samuelcaldas.github.io/alt-f/)
 [![SourceForge Project](https://img.shields.io/badge/SourceForge-alt--f-blue.svg)](https://sourceforge.net/projects/alt-f/)
 [![Forum: Google Groups](https://img.shields.io/badge/Community-Google%20Groups-red.svg)](https://groups.google.com/group/alt-f)
 
@@ -237,6 +238,8 @@ Alt-F includes a multi-tier automated test suite executed in isolated Docker con
 
 ## Official Resources & Documentation
 
+- **Documentation Portal (GitHub Pages):** [https://samuelcaldas.github.io/alt-f/](https://samuelcaldas.github.io/alt-f/)
+- **Original Google Site Mirror:** [https://sites.google.com/site/altfirmware/alt-f](https://sites.google.com/site/altfirmware/alt-f)
 - **SourceForge Project Page:** [https://sourceforge.net/projects/alt-f/](https://sourceforge.net/projects/alt-f/)
 - **SourceForge Wiki:** [https://sourceforge.net/p/alt-f/wiki/Alt-F%20Wiki/](https://sourceforge.net/p/alt-f/wiki/Alt-F%20Wiki/)
 - **Subversion Source Repository:** [https://sourceforge.net/p/alt-f/code/HEAD/tree/](https://sourceforge.net/p/alt-f/code/HEAD/tree/)
