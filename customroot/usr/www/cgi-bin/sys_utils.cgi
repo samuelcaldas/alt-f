@@ -238,6 +238,6 @@ cat<<-EOF
 	<input type=submit name=action value="UploadTheme" onClick="return confirm('Uploading themes can make the webUI susceptible to exploitations and attacks.\n\nProceed?')"><br>
 	</form>
 	</fieldset>
-	</body></html>
+	$(write_footer)
 EOF
 

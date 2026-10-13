@@ -92,6 +92,6 @@ cat<<-EOF
 	<tr><td>Proxy Password:</td><td><input type=password $APRXEN $PRXEN id="anonpr2" name="proxy_password" value="$proxy_password"></td></tr>
 	</table>
 	<p><input type="submit" value="Submit">
-	</form></body></html>
+	</form>$(write_footer)
 EOF
 

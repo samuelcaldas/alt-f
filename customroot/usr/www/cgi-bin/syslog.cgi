@@ -74,6 +74,6 @@ function toggle_remote() {
 		<td><input type="text" size="20" name="log_remote_host" id="log_remote_host" value="$log_remote_host">:<input type="text" size="5" name="log_remote_port" id="log_remote_port" value="$log_remote_port"></td>
 	</tr></table>
 	<p><input type=submit value=Submit> $(back_button)
-	</form></body></html>
+	</form>$(write_footer)
 EOF
 

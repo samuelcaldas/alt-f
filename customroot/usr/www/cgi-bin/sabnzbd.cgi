@@ -67,5 +67,5 @@ cat<<-EOF
 	<input type=hidden name=curver value="$curver">
 	<p><input type=submit name=submit value=Submit> $(back_button)
 	<input type="submit" $webbut_dis name=webPage value=WebPage>
-	</form></body></html>
+	</form>$(write_footer)
 EOF

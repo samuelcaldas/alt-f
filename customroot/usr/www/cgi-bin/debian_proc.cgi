@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cleanup() {
-	echo "</pre><h4>An error has occurred, cleaning up.</h4>$(back_button)</body></html>"
+	echo "</pre><h4>An error has occurred, cleaning up.</h4>$(back_button)$(write_footer)"
 	clean
 	exit 0
 }
@@ -239,7 +239,7 @@ if test "$submit" = "Install"; then
 
 	clean
 
-	echo "<h4>Success, Debian $(cat $DEBDIR/etc/debian_version) installed.</h4>$(goto_button Continue /cgi-bin/debian.cgi)</body></html>"
+	echo "<h4>Success, Debian $(cat $DEBDIR/etc/debian_version) installed.</h4>$(goto_button Continue /cgi-bin/debian.cgi)$(write_footer)"
 
 elif test "$submit" = "Uninstall"; then
 
@@ -256,7 +256,7 @@ elif test "$submit" = "Uninstall"; then
 	cat<<-EOF
 		<script type="text/javascript">
 			window.location.assign(document.referrer)
-		</script></body></html>
+		</script>$(write_footer)
 	EOF
 
 elif test "$submit" = "Execute"; then
@@ -267,7 +267,7 @@ elif test "$submit" = "Execute"; then
 
 	debian -kexec > /dev/null
 	
-	echo "</body></html>"
+	echo "$(write_footer)"
 fi
 
 #enddebug

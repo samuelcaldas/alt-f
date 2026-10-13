@@ -33,7 +33,7 @@ download() {
 		echo "</pre><p><strong>Error</strong></p>"
 		goto_button Back /cgi-bin/packages_ffp.cgi
 	fi
-	echo "</body></html>"
+	echo "$(write_footer)"
 	exit 0
 }
 
@@ -147,7 +147,7 @@ if test "$install" = "Install"; then
 	else
 		goto_button Back /cgi-bin/packages_ffp.cgi
 	fi
-	echo "</body></html>"
+	echo "$(write_footer)"
 	exit 0
 
 elif test -n "$Remove"; then

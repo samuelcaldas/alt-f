@@ -236,5 +236,5 @@ DISCONTINUED On the next SWAT Authentication dialogue you have to enter' + '\n' 
 '\'root\' for the \'User Name\' and the webUI password for \'Password\'.' + '\n\n' +
 'Changes made might not be recognized latter in this web page.' + '\n\n' + 'Continue?')"-->
 	$(back_button)
-	</form></body></html>
+	</form>$(write_footer)
 EOF

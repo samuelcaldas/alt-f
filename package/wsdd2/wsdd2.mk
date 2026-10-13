@@ -7,8 +7,8 @@
 #WSDD2_VERSION = 1.8.3.2
 #WSDD2_SITE = https://github.com/Andy2244/wsdd2/archive
 WSDD2_VERSION = 1.8.7
-WSDD2_SOURCE = $(WSDD2_VERSION).tar.gz
-WSDD2_SITE = https://github.com/Netgear/wsdd2/archive/refs/tags
+WSDD2_SOURCE = wsdd2-$(WSDD2_VERSION).tar.gz
+WSDD2_SITE = https://salsa.debian.org/debian/wsdd2/-/archive/upstream/1.8.7+dfsg
 
 WSDD2_DEPENDENCIES = uclibc
 
@@ -18,8 +18,8 @@ WSDD2_MAKE_ENV := CC="$(TARGET_CC) $(TARGET_CFLAGS)" STRIP="$(TARGET_STRIP)"
 $(eval $(call AUTOTARGETS,package,wsdd2))
 
 $(WSDD2_TARGET_SOURCE):
-	$(call DOWNLOAD,$(WSDD2_SITE),$(WSDD2_VERSION).tar.gz)
-	(cd $(DL_DIR); ln -sf $(WSDD2_VERSION).tar.gz wsdd2-$(WSDD2_VERSION).tar.gz )
+	$(call DOWNLOAD,$(WSDD2_SITE),wsdd2-upstream-1.8.7+dfsg.tar.gz)
+	(cd $(DL_DIR); ln -sf wsdd2-upstream-1.8.7+dfsg.tar.gz $(WSDD2_SOURCE) )
 	mkdir -p $(BUILD_DIR)/wsdd2-$(WSDD2_VERSION)
 	touch $@
 

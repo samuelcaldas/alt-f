@@ -122,6 +122,6 @@ cat<<-EOF
 	<tr><td>Password file:</td><td><input type=text name="keyfile" value="$CRYPT_KEYFILE" $(ttip crypt_tt)></td></tr>
 	</table>
 	<p><input type="submit" name=action value="Submit">$(back_button)
-	</form></body></html>
+	</form>$(write_footer)
 EOF
 

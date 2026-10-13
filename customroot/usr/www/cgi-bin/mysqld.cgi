@@ -14,7 +14,7 @@ if ! rcmysqld status >& /dev/null; then
 fi
 
 if ! mysql -Be "" >& /dev/null; then
-	echo "<p class=\"error\">Can't continue, there is no password stored in the configuration file or it is incorrect.</p></body></html>"
+	echo "<p class=\"error\">Can't continue, there is no password stored in the configuration file or it is incorrect.</p>$(write_footer)"
 	exit 0
 fi
 
@@ -118,5 +118,5 @@ cat<<-EOF
 	</fieldset>
 	
 	<p><input type=submit value=Submit>$(back_button)
-	</form></body></html>
+	</form>$(write_footer)
 EOF

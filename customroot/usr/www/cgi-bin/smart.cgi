@@ -128,5 +128,5 @@ cat<<-EOF
 	minutes</td></tr>
 	</table>
 	<p><input type="submit" value="Submit">$(back_button)
-	</form></body></html>
+	</form>$(write_footer)
 EOF

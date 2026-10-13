@@ -5,12 +5,12 @@ check_cookie
 write_header "Entware Services Setup"
 
 if ! test -f /opt/etc/init.d/rc.unslung; then
-	echo "No Entware installation found.<br>$(back_button)</body></html>"
+	echo "No Entware installation found.<br>$(back_button)$(write_footer)"
 	exit 0
 fi
 
 if ! lst=$(ls /opt/etc/init.d/S* 2> /dev/null); then
-	echo "No installed services found.<br>$(back_button)</body></html>"
+	echo "No installed services found.<br>$(back_button)$(write_footer)"
 	exit 0
 fi
 
@@ -51,5 +51,5 @@ cat<<-EOF
 	<td colspan=4></td></tr>
 	</table>
 	$(back_button)<input type=hidden name=cnt value=$cnt>
-	</form></body></html>
+	</form>$(write_footer)
 EOF

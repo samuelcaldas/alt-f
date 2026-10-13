@@ -25,7 +25,7 @@ if ! test -h /home -a -d "$(readlink -f /home)"; then
 	# FIXME offer possibility of creation of Public folders
 	select_part
 	echo "</select><input type=submit name=create_dir value=CreateDir>
-		</form></body></html>"
+		</form>$(write_footer)"
 	exit 0
 fi
 
@@ -150,5 +150,5 @@ cat <<EOF
 	</table></fieldset>
 	</div>
 	<input type=hidden name=nick>
-	</form></body></html>
+	</form>$(write_footer)
 EOF

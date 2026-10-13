@@ -6,7 +6,7 @@
 
 #STUNNEL_VERSION:=5.64
 STUNNEL_VERSION:=5.72
-STUNNEL_SITE:=https://www.stunnel.org/downloads
+STUNNEL_SITE:=https://www.stunnel.org/downloads/archive/5.x
 STUNNEL_SOURCE:=stunnel-$(STUNNEL_VERSION).tar.gz
 
 STUNNEL_CAT:=$(ZCAT)

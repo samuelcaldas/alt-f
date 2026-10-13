@@ -37,5 +37,5 @@ cat <<EOF
 	</table>
 	<p><input type=hidden name=cnt_know value="$i">
 	<input type=submit name=submit value=Submit>
-	</form></body></html>
+	</form>$(write_footer)
 EOF

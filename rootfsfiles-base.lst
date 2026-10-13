@@ -486,3 +486,14 @@
 ./usr/www/usersgroups_hlp.html
 ./var
 ./var/tmp
+./usr/www/cgi-bin/ui_menu.awk
+./usr/www/cgi-bin/ui_navigation.sh
+./usr/www/cgi-bin/ui_shell.sh
+./usr/www/scripts/classic
+./usr/www/scripts/classic.thm
+./usr/www/scripts/classic/classic.css
+./usr/www/scripts/ui
+./usr/www/scripts/ui/bookmarks.js
+./usr/www/scripts/ui/layout.css
+./usr/www/scripts/ui/navigation.js
+./usr/www/scripts/ui/tooltips.js

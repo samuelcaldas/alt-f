@@ -14,7 +14,7 @@ echo "<h4 class="warn">Warning: Entware is alien to Alt-F, conflicts might arise
 # FIXME: /opt should be really /mnt/<dev>/opt, and linked to /opt at discover time.
 # It should not be a subdir of /Alt-F. Affected Alt-F packages: grep -l '/opt/' ipkgfiles/*.p*
 #if ! aufs.sh -s >& /dev/null; then
-#	echo "<h3 class="warn">You have to install one Alt-F package first.</h3></body></html>"
+#	echo "<h3 class="warn">You have to install one Alt-F package first.</h3>$(write_footer)"
 #	exit 0
 #fi
 
@@ -56,7 +56,7 @@ if ! test -f $CONFF -a -x $OPTB; then
 		<tr><td>install into:</td>
 		<td>$(select_part $suggest)</td></tr>
 		<tr><td></td><td><input type=submit name=install value=Install></td></tr></table></fieldset>
-		</form></body></html>
+		</form>$(write_footer)
 	EOF
 	exit 0
 fi
@@ -194,5 +194,5 @@ opkg -V0 info | awk -v printall=$search '
 			}
 			print "</table></fieldset>"
 		}
-		print "</form></body></html>"
+		print "</form>$(write_footer)"
 	}'

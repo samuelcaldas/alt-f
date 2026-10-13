@@ -71,5 +71,5 @@ cat<<-EOF
 	<input type=hidden name=cnt value=$j>
 	<p><input type=submit value=Submit> $(back_button)
 	<input type="submit" id=webbut $webbut name="webPage" value="WebPage">
-	</form></body></html>
+	</form>$(write_footer)
 EOF

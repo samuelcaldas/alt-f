@@ -196,7 +196,7 @@ cat<<-EOF
 			document.body.style.cursor = '';
 			if (img.naturalHeight > 0) {
 				if (cross) {
-					parent.document.location.replace(server)
+					window.location.replace(server)
 				}
 				else
 					window.location.assign(page)
@@ -220,7 +220,7 @@ cat<<-EOF
 	}
 
 	setTimeout(testServer, 10000)
-	</script></body></html>
+	</script>$(write_footer)
 EOF
 
 # sometimes udhcpc survives an ifdown. If alive, sometimes it releases a static

@@ -65,7 +65,7 @@ showlog() {
 		$clearbutton
 		$(back_button)
 		<input type=hidden name=logfile value="$2">
-		</form></body></html>
+		</form>$(write_footer)
 	EOF
 }
 
@@ -105,7 +105,7 @@ lreboot() {
 		<center><h4>
 		$(wait_count_start "Waiting 60 seconds")
 		</h4></center></fieldset>
-		</body></html>
+		$(write_footer)
 	EOF
 	/sbin/reboot
 	exit 0
@@ -139,7 +139,7 @@ case "$action" in
 
 	Poweroff)
 		html_header "<br><br>The box is being powered off."
-		echo "</body></html>"
+		echo "$(write_footer)"
 		/usr/sbin/poweroff
 		exit 0
 		;;
@@ -239,7 +239,7 @@ case "$action" in
 				fixup status $fxi
 				echo "</pre>"
 			done
-			echo "</ul>$(back_button)</body></html>"
+			echo "</ul>$(back_button)$(write_footer)"
 			exit 0
 		fi
 		;;
@@ -293,11 +293,6 @@ case "$action" in
 		sed -i -e '/^TOP_MENU/d' -e '/^SIDE_MENU/d' $CONFM
 		if test -n "$notop_menu"; then echo 'TOP_MENU=no' >> $CONFM; fi
 		if test -n "$noside_menu"; then echo 'SIDE_MENU=no' >> $CONFM; fi
-		if test "$was" != "$noside_menu"; then 
-			html_header
-			echo "<script type="text/javascript">parent.location.reload(true)</script></body></html>"
-			exit 0
-		fi
 		(cd $THM_DIR; ln -sf $(httpd -d "$set_thm") default.thm)
 		;;
 

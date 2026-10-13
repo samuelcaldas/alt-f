@@ -5,6 +5,8 @@ CONF_BAY=/etc/bay
 HTTPD_LOGF=/var/log/httpd.log
 
 . $CONF_MISC
+. ./ui_navigation.sh
+. ./ui_shell.sh
 
 # sed removes any ' or " that would upset quoted assignment
 # awk ensures that 
@@ -236,7 +238,7 @@ has_disks() {
 	ndisks=$(echo "$disks" | grep /dev/ | wc -l)
 	if test -z "$disks"; then
 		echo "<br><strong>No disks found!</strong><br>"
-		echo "</body></html>"
+		echo "$(write_footer)"
 		exit 1
 	fi
 }
@@ -380,28 +382,10 @@ You should do it whenever you want your changes to survive a box reboot."
 # $1-title (optional)
 html_header() {
 	if test -n "$HTML_HEADER_DONE"; then return; fi
-	HTML_HEADER_DONE="yes"
-	if test "$#" != 0; then
-		center="<h2 class="title">$1</h2>"
-	fi
-
-	echo -e "Content-Type: text/html; charset=UTF-8\r\n\r"
-
-	cat<<-EOF
-		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-		<html><head profile="http://www.w3.org/2005/10/profile">
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel="icon" type="image/png" href="../dns-323.png">
-		<style type="text/css">
-			$(echo "$LOCAL_STYLE")
-			html { height: 100%; }
-			body { height: 100%; font-family: arial,verdana; }
-		</style>
-		$(load_thm default.thm)	
-		<title></title></head>
-		<body>
-		$center
-	EOF
+	HTML_HEADER_DONE=yes
+	ui_document_head "$1"
+	echo '<body class="ui-minimal">'
+	test -z "$1" || ui_page_title "$1"
 }
 
 debug() {
@@ -411,7 +395,7 @@ debug() {
 }
 
 enddebug() {
-	echo "</pre></body></html>"
+	echo "</pre>$(write_footer)"
 }
 
 msg() {
@@ -424,7 +408,7 @@ msg() {
 	document.body.style.cursor = '';
 	window.location.assign(document.referrer)
 	</script>
-	</body></html>"
+	$(write_footer)"
 	exit 1
 }
 
@@ -614,7 +598,7 @@ js_gotopage() {
 			window.location.assign("$1")
 			document.body.style.cursor = '';
 		</script>
-		</body></html>
+		$(write_footer)
 	EOF
 	exit 0
 }
@@ -634,14 +618,7 @@ check_cookie() {
 		fi
 		rm /tmp/cookie
 	fi
-	html_header
-	cat<<-EOF
-		<script type="text/javascript">
-			parent.frames.content.location.assign("/cgi-bin/login.cgi?$REQUEST_URI")
-			parent.frames.nav.location.assign("/cgi-bin/index.cgi")
-		</script></body></html>
-	EOF
-	exit 0
+	ui_login_redirect
 }
 
 busy_cursor_start() {
@@ -694,7 +671,7 @@ wait_count_stop() {
 # FIXME, iframe height!
 # $1=url to open, $2=page title
 embed_page() {
-	write_header ""
+	write_header "$2"
 
 	cat<<-EOF
 		<form name="embedf" action="zpto" method="post">
@@ -702,7 +679,7 @@ embed_page() {
 		<input type=hidden name="ifname" value="$2">
 		</form>
 		<iframe src="$1" width="100%" height="95%" frameborder="0" scrolling="auto"></iframe>
-		</body></html>
+		$(write_footer)
 	EOF
 	exit 0
 }
@@ -754,24 +731,7 @@ ttip() {
 }
 
 menu_setup() {
-	cat<<-EOF
-		<script type="text/javascript">
-		var menu = new Array();
-		var men = {label:"Logout", url:"/cgi-bin/logout.cgi"};
-		menu.push(men);
-		men = {label:"Status", url:"/cgi-bin/status.cgi"};
-		menu.push(men);
-	EOF
-	for i in Shortcuts $(cat Main.men); do
-		echo -n "men = {label:\"$i\", smenu:["
-		awk -F\| '{printf("{item:\"%s\", url:\"%s\"},\n", $1, $2)}' $i*.men
-		cat<<-EOF
-			]};
-			menu.push(men);
-		EOF
-	done
-	echo "menuSetup(\"$1\",\"$2\");"
-	echo "</script>"
+	ui_navigation
 }
 
 load_thm() {
@@ -791,51 +751,13 @@ load_thm() {
 
 # args: title [onload action]
 write_header() {
-	local hf hlp
 	firstboot
-	HTML_HEADER_DONE="yes"
-
-	echo -e "Content-Type: text/html; charset=UTF-8\r\n\r"
-	cat<<-EOF
-		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-		<html>
-		<head profile="http://www.w3.org/2005/10/profile">
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel="icon" type="image/png" href="../dns-323.png">
-	EOF
-
-	if ! loadsave_settings -st >/dev/null; then
-		warn_tt="The following files have changed since the last save:<br>$(loadsave_settings -lc | sed -n 's/ /<br>/gp')"
-		warn=$(cat<<-EOF
-			<h5 class="error"><a  class="error" href="/cgi-bin/settings.cgi" $(ttip tt_settings)>
-			When done you must <u>save settings</u>
-			<img src="../help.png" width="11" height="11" alt="help"></a></h5>
-			EOF
-			)
-	fi
-
-	if test "$#" = 2; then act="onLoad=\"$2\""; fi
-
-	hf=${0%.cgi}_hlp.html
-	if test -f /usr/www/$hf; then
-		hlp="<a href=\"../$hf\" $(ttip tt_help)><img src=\"../help.png\" alt=\"help\" border=0></a>"
-	fi
-
-	cat<<-EOF
-		<title>$1</title>
-		<style type="text/css">
-			$(echo "$LOCAL_STYLE")
-		</style>
-		$(load_thm default.thm)
-		</head>
-		<body $act>
-		$(menu_setup "top" "$TOP_MENU")
-		$(mktt tt_help "Get a descriptive help")
-		$(mktt tt_settings "$warn_tt")
-		<h2 class="title">$1 $hlp</h2>
-		$warn
-		$firstmsg
-	EOF
+	HTML_HEADER_DONE=yes
+	ui_document_head "$1"
+	ui_document_body "$2"
+	ui_page_title "$1"
+	ui_settings_notice
+	printf '%s\n' "$firstmsg"
 }
 
 md5() {

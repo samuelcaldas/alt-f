@@ -270,7 +270,7 @@ elif test -n "$Copy" -o -n "$Move" -o -n "$CopyContent"; then
 
 	if test $st != 0; then
 		#msg "$op failed:\n\n$res"
-		echo "<h4>$op failed:</h4><pre>$res</pre>$(back_button)</body></html>"
+		echo "<h4>$op failed:</h4><pre>$res</pre>$(back_button)$(write_footer)"
 		exit 1
 	fi
 

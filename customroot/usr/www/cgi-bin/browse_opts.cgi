@@ -7,7 +7,7 @@ if test -n "$QUERY_STRING"; then
 	parse_qstring
 else
 	write_header "NFS options error"
-	echo "<script type="text/javascript"> window.close() </script></body></html>"
+	echo "<script type="text/javascript"> window.close() </script>$(write_footer)"
 	exit 0
 fi
 
@@ -65,7 +65,7 @@ cat <<-EOF
 	</select><br>
 	<input type=submit value=OK onclick="ret_val('$id')">
 	<input type=submit value=Cancel onclick=window.close()>
-	</form></body></html>
+	</form>$(write_footer)
 EOF
 
 exit 0

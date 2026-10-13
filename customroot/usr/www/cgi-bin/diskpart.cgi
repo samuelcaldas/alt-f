@@ -520,5 +520,5 @@ cat<<EOF
 	<input type=submit name=$ddsk $partdis value=Partition onclick="return psubmit('$dcap', '$ddsk', '$bay', '$rawcap')">
 	<input type=button id=adv_id $partdis name=adv_bt value="Advanced" onclick="return advanced('$rawcap','$ddsk')">
 	<input type=hidden id=adv_hid name=adv_fl value="Basic">
-	</form></body></html>
+	</form>$(write_footer)
 EOF

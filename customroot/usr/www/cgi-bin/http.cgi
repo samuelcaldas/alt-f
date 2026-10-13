@@ -165,7 +165,7 @@ cat<<-EOF
 	<input type=hidden name=oldremip value="$remip">
 	<input type=hidden name=httpd_cnt value="$j">
 	</form>
-	</body></html>
+	$(write_footer)
 EOF
 
 

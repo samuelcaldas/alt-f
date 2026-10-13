@@ -34,5 +34,5 @@ cat<<-EOF
 	
 	<p><input type=submit name=submit value=Submit> $(back_button)
 	<input type="submit" $webbut name=webPage value=WebPage>
-	</form></body></html>
+	</form>$(write_footer)
 EOF

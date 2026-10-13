@@ -25,13 +25,7 @@ elif test -n "$add"; then
 		echo $title\|$url >> Shortcuts.men
 	fi
 
-	html_header
-	cat<<-EOF
-		<script type="text/javascript">
-			parent.nav.document.location.reload()
-			parent.content.document.location.assign("$url")
-		</script>
-	EOF
+	gotopage "$url"
 
 elif test -n "$rm"; then
 	title=$(httpd -d $rm)
@@ -47,13 +41,7 @@ elif test -n "$rm"; then
 		url="/cgi-bin/embed.cgi?name=$title?site=$(url_encode $url)"
 	fi
 
-	html_header
-	cat<<-EOF
-		<script type="text/javascript">
-		parent.nav.document.location.reload()
-		parent.content.document.location.assign("$url")
-		</script>
-	EOF
+	gotopage "$url"
 fi
 
-echo "</body></html>"
+echo "$(write_footer)"

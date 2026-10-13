@@ -70,5 +70,5 @@ cat<<-EOF
 		<td><input type="checkbox" $verbose_chk name="verbose" value="yes"></td></tr>
 	</table>
 	<p><input type="submit" value="Submit">$(back_button)
-	</form></body></html>
+	</form>$(write_footer)
 EOF

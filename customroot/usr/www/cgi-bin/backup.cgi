@@ -25,7 +25,7 @@ if ! test -h /Backup -a -d "$(readlink -f /Backup)"; then
 	EOF
 	select_part
 	echo "<input type=submit name=CreateDir value=CreateDir>
-		</form></body></html>"
+		</form>$(write_footer)"
 	exit 0
 fi
 
@@ -217,5 +217,5 @@ cat<<EOF
 	</fieldset>
 	<input type=hidden name=cnt_know value="$i">
 	<input type=submit name=submit value=Submit>$(back_button)
-	</form></body></html>
+	</form>$(write_footer)
 EOF

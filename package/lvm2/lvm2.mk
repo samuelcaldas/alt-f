@@ -109,10 +109,12 @@ $(LVM2_DIR)/.built: $(LVM2_DIR)/.configured
 	touch $(LVM2_DIR)/.built
 
 $(LVM2_TARGET_SBINS) $(LVM2_TARGET_DMSETUP_SBINS): $(LVM2_DIR)/.built
+	mkdir -p $(dir $@) $(TARGET_DIR)/etc
 	cp -a $(STAGING_DIR)/sbin/$(notdir $@) $@
 	cp -a $(STAGING_DIR)/etc/lvm $(TARGET_DIR)/etc
 
 $(LVM2_TARGET_LIBS): $(LVM2_DIR)/.built
+	mkdir -p $(dir $@)
 	cp -a $(STAGING_DIR)/usr/lib/$(notdir $@) $@
 
 lvm2-source:	$(DL_DIR)/$(LVM2_SOURCE)

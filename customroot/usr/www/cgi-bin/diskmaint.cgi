@@ -250,5 +250,5 @@ cat<<-EOF
 	or every <input type=text size=4 name=tune_days value="$TUNE_DAYS"> days
 	<input type=submit name=tune value=Submit> (set anyone to zero to disable it)
 	</fieldset>
-	</form></body></html>
+	</form>$(write_footer)
 EOF
